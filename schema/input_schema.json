@@ -1,0 +1,79 @@
+{
+  "title": "US County GIS 200+ Acre Vacant Land & LLC Owner Extractor",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "arcgisEndpoints": {
+      "title": "County ArcGIS FeatureServer Layer URLs",
+      "type": "array",
+      "description": "Public ArcGIS REST FeatureServer/MapServer layer URLs (e.g., Kenai Peninsula Borough KPB_Parcels FeatureServer/0).",
+      "editor": "stringList",
+      "prefill": [
+        "https://services.arcgis.com/XdwPqILKwMlOaw4F/arcgis/rest/services/KPB_Parcels/FeatureServer/0"
+      ],
+      "default": [
+        "https://services.arcgis.com/XdwPqILKwMlOaw4F/arcgis/rest/services/KPB_Parcels/FeatureServer/0"
+      ]
+    },
+    "minAcreage": {
+      "title": "Minimum Parcel Acreage",
+      "type": "integer",
+      "description": "Minimum acreage threshold for large-tract vacant land extraction (default: 200 acres).",
+      "default": 200,
+      "minimum": 10,
+      "maximum": 10000
+    },
+    "includeHomestead160": {
+      "title": "Include 160-Acre Homestead Quarter-Sections",
+      "type": "boolean",
+      "description": "Retains 159-160 acre federal Homestead Act quarter-sections in Tab 1 alongside 200+ acre tracts.",
+      "default": true
+    },
+    "maxImprovementValue": {
+      "title": "Max Minor Improvement Value for Tab 2 Review (USD)",
+      "type": "integer",
+      "description": "Parcels with $0 improvements go to Tab 1. Parcels with $1 up to this threshold (e.g., $2,000 Code 105 sheds) go to Tab 2 for aerial review. Higher values go to Tab 3.",
+      "default": 2000,
+      "minimum": 0
+    },
+    "maxLiveParcels": {
+      "title": "Max Additional Live ArcGIS Parcels per Endpoint",
+      "type": "integer",
+      "description": "Maximum number of live parcels to query directly from each ArcGIS REST endpoint per run.",
+      "default": 5,
+      "minimum": 0,
+      "maximum": 200
+    },
+    "includeVerifiedKpb16": {
+      "title": "Include 16 Verified KPB Benchmark Parcels & Polygons",
+      "type": "boolean",
+      "description": "Includes the 16 verified Kenai Peninsula Borough parcels (Tab 1 Qualifying, Tab 2 Review/Trusts, Tab 3 Excluded) with full Polygon and MultiPolygon coordinates.",
+      "default": true
+    },
+    "includeLlcDirectory": {
+      "title": "Include 4-State SFR LLC Principal Mailing Module",
+      "type": "boolean",
+      "description": "Includes the 16 verified single-family residential (SFR) LLC records across FL, GA, AZ, and OH with commercial Registered Agents bypassed.",
+      "default": true
+    },
+    "llcStates": {
+      "title": "Target LLC Registry States",
+      "type": "array",
+      "description": "State Secretary of State registries to include in the LLC mailing tabs (FL Sunbiz, GA SOS, AZ ACC, OH SOS).",
+      "editor": "stringList",
+      "prefill": [
+        "FL",
+        "GA",
+        "AZ",
+        "OH"
+      ],
+      "default": [
+        "FL",
+        "GA",
+        "AZ",
+        "OH"
+      ]
+    }
+  },
+  "required": []
+}

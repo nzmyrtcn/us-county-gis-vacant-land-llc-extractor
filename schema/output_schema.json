@@ -1,0 +1,31 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "US County GIS & 4-State LLC Output",
+  "description": "5-sheet Excel workbook (.xlsx), KML/GeoJSON polygon archive (.zip), HTML summary report, and unified dataset rows.",
+  "properties": {
+    "excelReport": {
+      "type": "string",
+      "title": "5-Sheet Excel Workbook (.xlsx)",
+      "description": "Workbook containing Tab 1 Verified Qualifying, Tab 2 Manual Review, Tab 3 Excluded Properties, Tab 4 Verified_LLC_Mailing_List, and Tab 5 Verification_QC_Audit.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/US_GIS_Vacant_Land_and_LLC_Audit.xlsx"
+    },
+    "polygonZip": {
+      "type": "string",
+      "title": "GIS Polygons Archive (.zip: KML + GeoJSON)",
+      "description": "ZIP archive containing RFC 7946 GeoJSON and color-coded Google Earth KML polygon boundaries (including MultiPolygon split tracts).",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/US_GIS_Vacant_Land_GIS_Polygons.zip"
+    },
+    "htmlReport": {
+      "type": "string",
+      "title": "HTML Summary Report",
+      "description": "Browser-ready HTML table report covering both GIS parcel classification and 4-state LLC principal mailing verification.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/US_GIS_Vacant_Land_Report.html"
+    },
+    "datasetRecords": {
+      "type": "string",
+      "title": "Extracted Parcels & LLC Entities (Dataset)",
+      "description": "Structured JSON/CSV dataset rows for all classified GIS parcels and verified LLC records.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    }
+  }
+}
